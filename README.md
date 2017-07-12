@@ -10,7 +10,7 @@ BASIC DESCRIPTION -:
 
 BASIC WORKING -:
 
-* Using Camera2 classes to record videos. I have basically copied my whole code of video fragment and xml file from the github repository "https://github.com/googlesamples/android-Camera2Basic".
+* Using Camera2 classes to record videos. I have basically copied my whole code of video fragment and xml file from the github repository (mentioned in sources).
 
 * Using sensors classes for GPS and accelerometer. (Sources enclosed in the end of this file).
 
@@ -42,4 +42,12 @@ BUGS -:
 
 ************************************************************************************************************************************ 
 
- 
+RESOURCES:-
+
+* Description of Camera2 -: "https://github.com/googlesamples/android-Camera2Basic".
+
+* GPS - https://developer.android.com/guide/topics/location/strategies.html
+
+* Accelerometer - https://developer.android.com/guide/topics/sensors/sensors_overview.html
+
+* A complete description of CursorAdapter - https://github.com/codepath/android_guides/wiki/Populating-a-ListView-with-a-CursorAdapter
