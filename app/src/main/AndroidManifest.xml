@@ -30,7 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CameraActivity_old" />
         <activity android:name=".CameraActivity" />
         <activity android:name=".VIDEO_DETAILS"></activity>
     </application>

@@ -56,6 +56,7 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -68,6 +69,8 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
+//import static android.support.v4.view.accessibility.AccessibilityNodeInfoCompatApi21.getWindow;
+
 public class Camera2VideoFragment extends Fragment
         implements View.OnClickListener, FragmentCompat.OnRequestPermissionsResultCallback {
 
@@ -79,6 +82,8 @@ public class Camera2VideoFragment extends Fragment
     private static final String TAG = "Camera2VideoFragment";
     private static final int REQUEST_VIDEO_PERMISSIONS = 1;
     private static final String FRAGMENT_DIALOG = "dialog";
+    private static final int MIN_TIME_BTW_UPDATES=200;  //150 ms
+    private static final int MIN_DISTANCE_BTW_UPDATES=10;   //10 metres
     private Location currentlocation;
 
     private static final String[] VIDEO_PERMISSIONS = {
@@ -330,8 +335,8 @@ public class Camera2VideoFragment extends Fragment
                 public void onProviderDisabled(String provider) {
                 }
             };
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME_BTW_UPDATES, MIN_DISTANCE_BTW_UPDATES, locationListener);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_BTW_UPDATES, MIN_DISTANCE_BTW_UPDATES, locationListener);
         }
 
     }
@@ -447,6 +452,7 @@ public class Camera2VideoFragment extends Fragment
                     startRecordingVideo();
                     getlocationupdates();
                     startTime = SystemClock.elapsedRealtime();
+                    //getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
                 }
                 break;
             }
@@ -722,7 +728,7 @@ public class Camera2VideoFragment extends Fragment
         }
         mMediaRecorder.setOutputFile(mNextVideoAbsolutePath);
         mMediaRecorder.setVideoEncodingBitRate(10000000);
-        mMediaRecorder.setVideoFrameRate(30);
+        mMediaRecorder.setVideoFrameRate(15);
         mMediaRecorder.setVideoSize(mVideoSize.getWidth(), mVideoSize.getHeight());
         mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
         mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
@@ -739,7 +745,7 @@ public class Camera2VideoFragment extends Fragment
     }
 
     private String getVideoFilePath(Context context) {
-        final File dir = context.getExternalFilesDir(null);
+        File dir = context.getExternalFilesDir(null);
         return (dir == null ? "" : (dir.getAbsolutePath() + "/"))
                 + getname() + ".mp4";
     }

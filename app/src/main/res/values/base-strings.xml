@@ -21,7 +21,7 @@
         <![CDATA[
         
             
-            This sample demonstrates how to record video using Camera2 API.
+            This sample demonstrates how to record video in sync with accelerometer data and gps data
             
         
         ]]>

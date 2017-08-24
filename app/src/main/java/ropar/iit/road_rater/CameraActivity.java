@@ -23,10 +23,14 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.icu.text.NumberFormat;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.util.Log;
 
 public class CameraActivity extends Activity implements SensorEventListener{
+
+
+
     @Override
     public void onBackPressed() {
         if(!Camera2VideoFragment.mIsRecordingVideo)
@@ -74,7 +78,7 @@ public class CameraActivity extends Activity implements SensorEventListener{
         long Time= SystemClock.elapsedRealtime()-Camera2VideoFragment.getstarttime();
         if(Time2!=-1)
         {
-            if((Time-Time2)<50)
+            if((Time-Time2)<200)
             {
                 Log.d("RETURNING","WORKING FINE "+Time+" "+Time2);
                 return;
@@ -82,19 +86,19 @@ public class CameraActivity extends Activity implements SensorEventListener{
         }
         Log.d("FOLLOWING","NOT WORKING "+Time+" "+Time2);
         Time2=Time;
-        double accelationSquareRoot = (x * x + y * y + z * z)
-                / (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
+     //   double accelationSquareRoot = (x * x + y * y + z * z)
+       //         / (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
         name_current=Camera2VideoFragment.final_video_name+"1";
         //Database5Helper db=new DatabaseHelper(this);
          Log.d("ACCELEROMETER",name_current);
      //   Toast.makeText(this,"Accelerometer"+name_current,Toast.LENGTH_LONG).show();
         db.AddDesiredAccelerometerTable(name_current);
         db.insertaccelerometerData(name_current,x,y,z,Time);
-       if(accelationSquareRoot>=1)
-       {
+      // if(accelationSquareRoot>=1)
+      // {
         ;
            //   Toast.makeText(this,"device was given acceleration of"+accelationSquareRoot+"value along x"+x+"value along y"+y+"value along z"+z,Toast.LENGTH_LONG).show();
-       }
+       //}
     }
 
     @Override
