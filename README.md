@@ -2,10 +2,7 @@
 
 BASIC DESCRIPTION -:
 
-* This repository is an android studio project for making an app that can record a video and along with video, it is also recording accelerometer sensor values and gps location of the mobile phone used in the context.
-
-* This repository will also contains some matlab scripts in a different folder. As of now , this script are able to segment road using color
-	segmentation.
+* This repository is an android studio project for making an app that can record a video and along with video, it is also recording accelerometer sensor values and gps location of the mobile phone used in the context for research purposes.
 
 * This repository was initially developed by Sachin Bijalwan(contact - 2015csb1027@iitrpr.ac.in). Future developers can add their name and
 	contact info in this point.
