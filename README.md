@@ -4,6 +4,9 @@ BASIC DESCRIPTION -:
 
 * This repository is an android studio project for making an app that can record a video and along with video, it is also recording accelerometer sensor values and gps location of the mobile phone used in the context for research purposes.
 
+* You can find the apk related to this code at
+ https://drive.google.com/file/d/0B3Baq0w3Jj7HaXNPRlBDOUxKSVk/view?usp=sharing
+
 * This repository was initially developed by Sachin Bijalwan(contact - 2015csb1027@iitrpr.ac.in). Future developers can add their name and
 	contact info in this point.
 
