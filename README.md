@@ -14,7 +14,7 @@ BASIC DESCRIPTION -:
 
 BASIC WORKING OF APP-:
 
-* Using Camera2 classes to record videos. I have basically copied my whole code of video fragment and xml file from the github repository (mentioned in sources).
+* Using Camera2 classes to record videos. I have looked up the code of video fragment and xml file from the github repository (mentioned in sources).
 
 * Using sensors classes for GPS and accelerometer. (Sources enclosed in the end of this file).
 
